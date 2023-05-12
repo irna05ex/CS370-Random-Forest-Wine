@@ -17,7 +17,10 @@ public class RandomForest {
 		maxDepth = depth;
 		attributes = at;
 		forest = new decisionTree[treeNum];
-	}
+}
+public wine[] returnSet(){
+	return dataSet;
+}
 	
 	public void loadData(Scanner red, Scanner white) {//given data set is divided into 2 files (1 for red, 1 for white)
 		int i = 0;
@@ -178,7 +181,7 @@ public class RandomForest {
 	}
 	
 	public wine getWine() {
-		wine w;
+		
 		Random r = new Random();
 		int x = r.nextInt(setSize);
 		return dataSet[x];
