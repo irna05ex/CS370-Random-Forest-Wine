@@ -250,7 +250,18 @@ public class rfInputGUI implements ActionListener
 		for(int a = 0; a <12; a++) 
 		{
 			//
-			if(input[a] == null) input[a] = avgVal[a]; 
+			if(a > 1)
+			{
+				try
+				{
+					float f = Float.parseFloat(input[a]);
+				}
+				catch(NumberFormatException nfe)
+				{
+					System.out.println("this value must eb a number between * and *");
+				}
+			}
+			if(input[a] == null) input[a] = avgVal[a];
 		}
 				
 		testRF.test(input);
