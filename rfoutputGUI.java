@@ -15,7 +15,7 @@ import javax.swing.border.LineBorder;
 public class rfoutputGUI implements ActionListener
 {
 	JFrame pop;
-	public rfoutputGUI(String foretelling, String [] Like) 
+	public rfoutputGUI(String foretelling, int Like) 
 	{
 		
 		pop = new JFrame();
@@ -58,17 +58,29 @@ public class rfoutputGUI implements ActionListener
 			Others.setForeground(Color.WHITE);
 			Others.setBackground(new Color(227, 83, 117));
 			Others.setBorder(new LineBorder (new Color(227, 83, 117)));
-			
-			JComboBox oth = new JComboBox(Like);
 			oth.setForeground(Color.WHITE);
 			oth.setBackground(new Color(227, 83, 117));
 			oth.setBorder(new LineBorder (new Color(227, 83, 117)));
 			
-			JLabel ot = new JLabel("Here are some wines like the one you put in");
-			ot.setForeground(Color.WHITE);
+			if(like == 0)
+			{
+				JLabel oth = new JLabel(); 
+			}
+			
+			else if(like == 1)
+			{
+				JLabel oth = new JLabel("There is one wine like the one you put in");
+			}
+			
+			else
+			{
+				String l = "There are " + Like + "wines like the one you put in."; 
+				JLabel oth = new JLabel(l);
+			}
+			
+			oth.setForeground(Color.WHITE);
 			
 			Others.add(oth);
-			Others.add(ot);
 			
 			pop.add(new JLabel());
 			pop.add(F);
@@ -87,7 +99,8 @@ public class rfoutputGUI implements ActionListener
 	public void actionPerformed(ActionEvent arg0) 
 	{
 		// TODO Auto-generated method stub
-		RT.input();
-		pop.dispatchEvent(new WindowEvent(pop, WindowEvent.WINDOW_CLOSING));
+		pop.setVisible(false);
+		testRF again = new testRF();
+		//go to the testrf loop
 	}
 }
