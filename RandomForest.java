@@ -17,10 +17,11 @@ public class RandomForest {
 		maxDepth = depth;
 		attributes = at;
 		forest = new decisionTree[treeNum];
-}
-public wine[] returnSet(){
-	return dataSet;
-}
+	}
+
+	public wine[] returnSet(){
+		return dataSet;
+	}
 	
 	public void loadData(Scanner red, Scanner white) {//given data set is divided into 2 files (1 for red, 1 for white)
 		int i = 0;
@@ -41,12 +42,12 @@ public wine[] returnSet(){
 			in.setCitricAcid(Float.parseFloat(atr[2]));
 			in.setResidualSugar(Float.parseFloat(atr[3]));
 			in.setChlorides(Float.parseFloat(atr[4]));
-			in.setFreeSulfer(Float.parseFloat(atr[5]));
-			in.setTotalSulfer(Float.parseFloat(atr[6]));
+			in.setFreeSulfur(Float.parseFloat(atr[5]));
+			in.setTotalSulfur(Float.parseFloat(atr[6]));
 			in.setDensity(Float.parseFloat(atr[7]));
 			in.setpH(Float.parseFloat(atr[8]));
-			in.setSulfates(Float.parseFloat(atr[9]));
-			in.setAlcohal(Float.parseFloat(atr[10]));
+			in.setSulphates(Float.parseFloat(atr[9]));
+			in.setAlcohol(Float.parseFloat(atr[10]));
 			
 			q = Integer.parseInt(atr[11]);
 			if(q > 6)
@@ -70,12 +71,12 @@ public wine[] returnSet(){
 			in.setCitricAcid(Float.parseFloat(atr[2]));
 			in.setResidualSugar(Float.parseFloat(atr[3]));
 			in.setChlorides(Float.parseFloat(atr[4]));
-			in.setFreeSulfer(Float.parseFloat(atr[5]));
-			in.setTotalSulfer(Float.parseFloat(atr[6]));
+			in.setFreeSulfur(Float.parseFloat(atr[5]));
+			in.setTotalSulfur(Float.parseFloat(atr[6]));
 			in.setDensity(Float.parseFloat(atr[7]));
 			in.setpH(Float.parseFloat(atr[8]));
-			in.setSulfates(Float.parseFloat(atr[9]));
-			in.setAlcohal(Float.parseFloat(atr[10]));
+			in.setSulphates(Float.parseFloat(atr[9]));
+			in.setAlcohol(Float.parseFloat(atr[10]));
 			
 			q = Integer.parseInt(atr[11]);
 			if(q > 6)
@@ -181,7 +182,6 @@ public wine[] returnSet(){
 	}
 	
 	public wine getWine() {
-		
 		Random r = new Random();
 		int x = r.nextInt(setSize);
 		return dataSet[x];

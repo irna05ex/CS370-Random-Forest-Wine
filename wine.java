@@ -6,8 +6,8 @@ public class wine {
 	private Float citricAcid;
 	private Float residualSugar;
 	private Float chlorides;
-	private Float freeSulfer;
-	private Float totalSulfer;
+	private Float freeSulfur;
+	private Float totalSulfur;
 	private Float density;
 	private Float pH;
 	private Float sulphates;
@@ -51,17 +51,17 @@ public class wine {
 	public void setChlorides(float chlorides) {
 		this.chlorides = chlorides;
 	}
-	public float getFreeSulfer() {
-		return freeSulfer;
+	public float getFreeSulfur() {
+		return freeSulfur;
 	}
-	public void setFreeSulfer(float freeSulfer) {
-		this.freeSulfer = freeSulfer;
+	public void setFreeSulfur(float freeSulfur) {
+		this.freeSulfur = freeSulfur;
 	}
-	public float getTotalSulfer() {
-		return totalSulfer;
+	public float getTotalSulfur() {
+		return totalSulfur;
 	}
-	public void setTotalSulfer(float totalSulfer) {
-		this.totalSulfer = totalSulfer;
+	public void setTotalSulfur(float totalSulfur) {
+		this.totalSulfur = totalSulfur;
 	}
 	public float getDensity() {
 		return density;
@@ -75,17 +75,17 @@ public class wine {
 	public void setpH(float pH) {
 		this.pH = pH;
 	}
-	public float getSulfates() {
+	public float getSulphates() {
 		return sulphates;
 	}
-	public void setSulfates(float sulfates) {
-		this.sulphates = sulfates;
+	public void setSulphates(float sulphates) {
+		this.sulphates = sulphates;
 	}
-	public float getAlcohal() {
+	public float getAlcohol() {
 		return alcohol;
 	}
-	public void setAlcohal(float alcohal) {
-		this.alcohol = alcohal;
+	public void setAlcohol(float alcohol) {
+		this.alcohol = alcohol;
 	}
 	public int getQuality() {
 		return quality;
@@ -96,7 +96,6 @@ public class wine {
 	
 	//get attribute by name
 	public Object getByName(String a) {
-		//System.out.println(a);
 		if(a.equals("color")) 
 			return type;
 		else if(a.equals("fixed acidity"))
@@ -110,9 +109,9 @@ public class wine {
 		else if(a.equals("chlorides")) 
 			return chlorides;
 		else if(a.equals("free sulfur")) 
-			return freeSulfer;
+			return freeSulfur;
 		else if(a.equals("total sulfur")) 
-			return totalSulfer;
+			return totalSulfur;
 		else if(a.equals("density"))
 			return density;
 		else if(a.equals("pH")) 

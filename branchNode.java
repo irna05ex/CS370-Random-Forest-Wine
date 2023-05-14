@@ -13,68 +13,12 @@ public class branchNode implements treeNode{//internal node
 		if(comparisonAttribute.equals("color")) {
 			c = (w.getType().compareTo((String) comparisonValue));
 		}
-		else if(comparisonAttribute.equals("fixed acidity")) {
-			if(w.getFixedAcidity() < (float) comparisonValue)
+		else if(w.getByName(comparisonAttribute) != null) {
+			if((float)w.getByName(comparisonAttribute) < (float) comparisonValue)
 				c = -1;
 			else
-				c = 1;
+				c = 1;	
 		}
-		else if(comparisonAttribute.equals("volatile acidity")) {
-			if(w.getVolatileAcidity() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		else if(comparisonAttribute.equals("citric acid")) {
-			if(w.getCitricAcid() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		else if(comparisonAttribute.equals("chlorides")) {
-			if(w.getChlorides() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		
-		else if(comparisonAttribute.equals("free sulfer")) {
-			if(w.getFreeSulfer() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		else if(comparisonAttribute.equals("total sulfer")) {
-			if(w.getTotalSulfer() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		else if(comparisonAttribute.equals("density")) {
-			if(w.getDensity() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		else if(comparisonAttribute.equals("pH")) {
-			if(w.getpH() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		else if(comparisonAttribute.equals("sulfates")) {
-			if(w.getSulfates() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		else if(comparisonAttribute.equals("alcohal")) {
-			if(w.getAlcohal() < (float) comparisonValue)
-				c = -1;
-			else
-				c = 1;
-		}
-		
 		//if w.attribute is less than comparisonValue return left
 		if(c < 0)
 			return left;

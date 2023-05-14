@@ -52,8 +52,8 @@ public class decisionTree {
 				else if(v<min[i])
 					min[i] = v;
 			}
-			avg /= dataset.length;
-			interval[i] = (float) (avg/4.0);
+			avg /= (float)dataset.length;
+			interval[i] = (float) (avg-min[i]/10.0);
 			i++;
 		}
 	}
@@ -88,7 +88,7 @@ public class decisionTree {
 			return n;
 		}
 		
-		float gain = (float) 1.0;
+		float gain = (float) 0.0;
 		String chooseSplit = "";//final best split
 		Object splitValue = null;//final best split value
 		float giniSplit;
@@ -96,7 +96,7 @@ public class decisionTree {
 		if(attribute[0].equals("color")) {
 			find = 1;
 			giniSplit = calculateGini(attribute[0], "white", set);
-			if(gain > giniNoSplit - giniSplit && giniNoSplit - giniSplit > 0) {
+			if(gain < giniNoSplit - giniSplit) {
 				gain = giniNoSplit - giniSplit;
 				chooseSplit = "color";
 				splitValue = "white";
@@ -109,7 +109,7 @@ public class decisionTree {
 		while(find < attributes) {//find best split from continuous variable
 			for(float thresHold = min[find] + interval[find]; thresHold<max[find]; thresHold += interval[find]) {
 				giniSplit = calculateGini(attribute[find], thresHold, set);
-				if(gain > giniNoSplit - giniSplit && giniNoSplit - giniSplit > 0) {
+				if(gain < giniNoSplit - giniSplit) {
 					gain = giniNoSplit - giniSplit;
 					chooseSplit =  attribute[find];
 					splitValue = thresHold;
@@ -120,7 +120,7 @@ public class decisionTree {
 			find++;
 		}
 		
-		if(gain == 1.0) {//no better split found
+		if(gain == 0.0) {//no better split found
 			decisionNode d = new decisionNode();
 			int l = 0, r = 0;
 			for(int i = 0; i<set.length; i++) {
@@ -141,7 +141,7 @@ public class decisionTree {
 		m.setComparisonValue(splitValue);
 		wine [] left;
 		wine [] right;
-		int side = 0;
+		int side = 0;//amount in left branch
 		
 		for(int check = 0; check<set.length; check++) {//count wines in left and right branch
 			if(chooseSplit.equals("color")){
@@ -160,7 +160,7 @@ public class decisionTree {
 		for(int check = 0; check<set.length; check++) {//assign wines to correct branch
 			if(chooseSplit.equals("color")){
 				if(set[check].getType().equals("red"))
-					left[l++] = set[check];
+					left[l++] = set[check]; 
 				else
 					right[r++] = set[check];
 			}
@@ -233,16 +233,16 @@ public class decisionTree {
 		}
 		
 		float tL = (leftBad + leftGood);
-		float p1L = (float)(leftBad/tL);
-		float p2L = (float)(leftGood/tL);
+		float p1L = (float)leftBad/tL;
+		float p2L = (float)leftGood/tL;
 		
 		float tR = (rightBad + rightGood);
-		float p1R = (float)(rightBad/tR);
-		float p2R = (float)(rightGood/tR);
+		float p1R = (float)rightBad/tR;
+		float p2R = (float)rightGood/tR;
 		
 		float gL = (float) ((p1L * (1.0 - p1L)) + (p2L * (1.0 - p2L)));
 		float gR = (float) ((p1R * (1.0 - p1R)) + (p2R * (1.0 - p2R)));
-		return (float) (((tL/set.length) * gL) + ((tR/set.length) * gR));
+		return (((tL/set.length) * gL) + ((tR/set.length) * gR));
 	}
 	
 	public String test(wine w) {//test wine through tree
@@ -300,7 +300,6 @@ public class decisionTree {
 			b.right = readingTree(read);
 			return b;
 		}
-		
 		
 		//if branch node not created decision node created
 		decisionNode d = new decisionNode();
