@@ -52,7 +52,9 @@ public class testRF {
 wine[] search = rf.returnSet(); //size 6497
 // represeents data forest wineSet
 wine q = new wine(); //wine inputed with attributes from GUI
-
+rfInputGUI in = new rfInputGUI();
+String[] GUIstring = in.input;
+System.out.println(GUIstring);
 //instead of new wine, set wine q to GUI wine input
 //the GUI string inputs must connect to the search
 	//q.setAlcohol(); //wine input alcohol
@@ -73,7 +75,7 @@ int sim; //similar amount of attributes, start at zero, increments by 1
 //if atrribute is similar
 
 for(int j=0; j< 6497; j++){ //size of dataset
-sim=0;
+	sim=0;
 
 	if(q.getType().equals (search[j].getType())) //Wine color is string
 		sim++;	
@@ -130,6 +132,7 @@ sim=0;
 	//if not similar, loop restarts and goes into next wine n dataset
 		System.out.println(search[j]);
 		return;
+	rfoutputGUI = new rfoutputGUI(rf.test(q), search.size());
 }
 }
 //System.out.println("No similar wine found.");
