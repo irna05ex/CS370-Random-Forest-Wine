@@ -247,23 +247,23 @@ public class rfInputGUI implements ActionListener
 		input[10] = Sulphates.getText();
 		input[11] = Alcohol.getText();
 		
-		for(int a = 0; a <12; a++) 
+		for(int a = 1; a < 12; a++) 
 		{
 			//
-			if(a > 1)
+			try
 			{
-				try
-				{
-					float f = Float.parseFloat(input[a]);
-				}
-				catch(NumberFormatException nfe)
-				{
-					System.out.println("this value must eb a number between * and *");
-				}
+				float f = Float.parseFloat(input[a]);
 			}
+			catch(NumberFormatException nfe)
+			{
+				//make a array for every minval and maxval for an attribute
+				System.out.println("this value must be a number between * and *");
+			}
+			//make an array of avaerage values for each attribute
 			if(input[a] == null) input[a] = avgVal[a];
 		}
 				
 		testRF.test(input);
+		popup.setvisible(false);
 	}
 }
