@@ -262,8 +262,6 @@ public class rfInputGUI implements ActionListener
 			//make an array of avaerage values for each attribute
 			if(input[a] == null) input[a] = avgVal[a];
 		}
-				
-		testRF.test(input);
 		popup.setvisible(false);
 	}
 }
