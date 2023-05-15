@@ -25,77 +25,66 @@ public class wine {
 		return fixedAcidity;
 	}
 	public void setFixedAcidity(float fixedAcidity) {
-		if (fixedAcidity < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.fixedAcidity = fixedAcidity;
 	}
 	public float getVolatileAcidity() {
 		return volatileAcidity;
 	}
 	public void setVolatileAcidity(float volatileAcidity) {
-		if (volatileAcidity < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.volatileAcidity = volatileAcidity;
 	}
 	public float getCitricAcid() {
 		return citricAcid;
 	}
 	public void setCitricAcid(float citricAcid) {
-		if (citricAcid < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.citricAcid = citricAcid;
 	}
 	public float getResidualSugar() {
 		return residualSugar;
 	}
 	public void setResidualSugar(float residualSugar) {
-		if (residualSugar < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.residualSugar = residualSugar;
 	}
 	public float getChlorides() {
 		return chlorides;
 	}
 	public void setChlorides(float chlorides) {
-		if (chlorides < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.chlorides = chlorides;
 	}
 	public float getFreeSulfur() {
 		return freeSulfur;
 	}
 	public void setFreeSulfur(float freeSulfur) {
-		if (freeSulfur < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.freeSulfur = freeSulfur;
 	}
 	public float getTotalSulfur() {
 		return totalSulfur;
 	}
 	public void setTotalSulfur(float totalSulfur) {
-		if (totalSulfur < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.totalSulfur = totalSulfur;
 	}
 	public float getDensity() {
 		return density;
 	}
 	public void setDensity(float density) {
-		if (density < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.density = density;
 	}
 	public float getpH() {
 		return pH;
 	}
 	public void setpH(float pH) {
-		if (pH < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.pH = pH;
 	}
 	public float getSulphates() {
 		return sulphates;
 	}
 	public void setSulphates(float sulphates) {
-		if (sulphates < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.sulphates = sulphates;
 	}
 	public float getAlcohol() {
 		return alcohol;
 	}
 	public void setAlcohol(float alcohol) {
-		if (alcohol < 0) throw new IllegalArguementException("Please put in a valid number!");
 		this.alcohol = alcohol;
 	}
 	public int getQuality() {
